@@ -1,5 +1,5 @@
 RewriteEngine On
 
-RewriteBase /JWE22/Speise_Karte/
+RewriteBase /Speisekarte/speisekarte/
 
 RewriteRule ^\/?api\/? api/index.php
