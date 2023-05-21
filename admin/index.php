@@ -1,0 +1,1 @@
+// copy das projekt fluege unter dem ordner admin und tabellennamen anpassen und tschuss!
