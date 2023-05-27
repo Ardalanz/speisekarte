@@ -53,13 +53,13 @@
           
 
           <li class="nav-item">
-            <a href="#food-menu" class="navbar-link">Speisekarte</a>
+            <a href="#nav-speisekarte" class="navbar-link">Speisekarte</a>
           </li>
 
           
 
           <li class="nav-item">
-            <a href="#" class="navbar-link">Kontakt</a>
+            <a href="#footer" class="navbar-link">Kontakt</a>
           </li>
 
         </ul>
@@ -67,7 +67,7 @@
 
       
 
-        <button class="btn btn-hover">Reservierung</button>
+        <button class="btn btn-hover"><a href="../admin">Admin</a></button>
 
         
       </div>
@@ -100,7 +100,7 @@
       <section class="section section-divider white promo">
         <div class="container">
 
-          <ul class="promo-list has-scrollbar">
+          <ul id="kategorien" class="promo-list has-scrollbar">
 
             <li class="promo-item">
               <div class="promo-card">
@@ -120,10 +120,10 @@
                   </svg>
                 </div>
 
-              <a href="#pizza-karte">
+              <a href="#pizza">
                 <h3 class="h3 card-title">Italienische Pizza</h3>
 
-                <p class="card-text">
+                <p id="nav-speisekarte" class="card-text">
                     Pizza wie in Italien
                 </p>
                 
@@ -152,7 +152,7 @@
                 </div>
               </a>
 
-              <a href="#">
+              <a href="#getraenke-karte">
                 <h3 class="h3 card-title">Getränke</h3>
 
                 <p class="card-text">
@@ -184,6 +184,7 @@
                 </div>
               </a>
 
+              <a href="#Snacks-karte">
                 <h3 class="h3 card-title">Snacks</h3>
 
                 <p class="card-text">
@@ -214,7 +215,9 @@
                     </defs>
                   </svg>
                 </div>
+              </a>
 
+              <a href="#Nachspeise">
                 <h3 class="h3 card-title">Nachspeise</h3>
 
                 <p class="card-text">
@@ -230,48 +233,49 @@
           </ul>
 
         </div>
-      </section>
+      </a>
+    </section>
 
       <section class="speisekarte">
         <img src="../img/Hintergrund1.png" alt="">
-        <h1>Beste Pizzaria in der Stadt</h1>
-          <p>Kommen Sie vorbei und überzeugen Sie sich selbst</p>
+          <h1>Beste Pizzaria in der Stadt</h1>
+            <p>Kommen Sie vorbei und überzeugen Sie sich selbst</p>
 
-  <h1 id="pizza-karte">Pizzen:</h1>
-  <div id="rezepte" class="container">
+                
+            <h1 id="getraenke-karte">Getränke:</h1>
+            <div id="getraenke" class="container">
+        
+            <div class="getraenke-container">
+              <div>Cola</div>
+              <div>Fanta</div>
+              <div>Apfelsaft</div>
+              <div>Orangensaft</div>
+              <div>Hollundersaft</div>
+              <div>Soda-Zitrone</div>
+              <div>Mineralwasser</div>
+              <div>Bier</div>
+              <div>Weißwein</div>
+              <div>Rotwein</div>
+            </div>
   
-<!-- pizzen anzeige 2 Reihig -->
-   
+            <div id="produkte">
+              <h1 id="pizza"></h1>
+              <!-- pizzen anzeige 2 Reihig -->
+            </div>
+        </section>
+      </article>
+    </main>
+    </section>
+
   
-      </section>
-    </article>
-  </main>
+    
+    
+    
 
-
-  <h1>Getränke</h1>
-
-  <ul class="getraeke">
-    <div class="left" id="l1">Cola</div>
-    <div class="right" id="r1">Fanta</div>
-    <div class="left" id="l2">Apfelsaft</div>
-    <div class="right" id="r2">Orangensaft</div>
-    <div class="left" id="l3">Hollundersaft</div>
-    <div class="right" id="r3">Soda-Zitrone</div>
-    <div class="left" id="l4">Mineralwasser</div>
-    <div class="right" id="l4">Bier</div>
-    <div class="left" id="l5">Weißwein</div>
-    <div class="right" id="l5">Rotwein</div>
-  </ul>
   
   
 
-
-
-  <!-- 
-    - #FOOTER
-  -->
-
-  <footer class="footer">
+  <footer id="footer" class="footer">
 
     <div class="footer-top">
       <div class="container">
@@ -292,7 +296,7 @@
           </li>
 
           <li>
-            <address class="footer-list-item">salzburgerstraße</address>
+            <p class="footer-list-item">salzburgerstraße 69a</p>
           </li>
 
         </ul>

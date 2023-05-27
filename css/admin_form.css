@@ -1,0 +1,160 @@
+@font-face {
+    font-family: MarckScripts;
+    src: url(../fonts/PTSerif-BoldItalic.ttf);
+    font-weight: bold;
+}
+
+:root {
+    --schrift: #383737;
+    --saferan: hsl(32, 100%, 59%);
+}
+
+
+body {
+    /* background: linear-gradient(45deg, var(--saferan),#5e5e5e,#ce721c, #aa4911, #ff0000);
+    animation: gradient 10s ease normal;
+    background-size: 400% 400%;
+    font-family: MarckScripts;
+    color: var(--schrift); */
+
+    background: linear-gradient(-45deg, var(--saferan),  #000000, var(--saferan) );
+	background-size: 400% 800%;
+	animation: gradient 35s ease infinite;
+	height: 100vh;
+    color: rgb(158, 158, 158);
+    font-family: MarckScripts;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+h1,
+table,
+thead,
+tbody,
+tr,
+td {
+
+    margin: 10px;
+    padding: 25px;
+    max-width: 100%;
+    margin-inline: auto;
+    box-shadow: 1px 1px 1px 1px transparent;
+    border-radius: 1%;
+    text-decoration: none;
+
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+a {
+    text-decoration: none;
+    color:rgb(158, 158, 158);
+}
+
+li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+
+header {
+    margin: 10px;
+    font-family: MarckScripts;
+
+}
+
+
+h1 {
+    color: orange;
+}
+
+p {
+    color: var(--shrift);
+    margin: 20px;
+    text-align: center;
+    text-decoration: underline;
+    box-shadow: 5px 5px 50px 5px var(--saferan);
+
+
+}
+
+nav {
+    padding: 10px;
+    color: var(--shrift);
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 5px 5px 50px 5px var(--saferan);
+    max-width: 100vw;
+    font-size: 2rem;
+    margin: 0;
+    display: inline-flex;
+}
+
+a:hover {
+    color: darkgoldenrod;
+    box-shadow: 1px 1px 5px 1px var(--saferan);
+
+}
+
+.tabelle * {
+    color: rgb(44, 44, 44) !important;
+}
+
+.tabelle {
+    table-layout: fixed;
+}
+
+.spalte-handy {
+    display: none;
+    padding-right: 5px;
+}
+
+.tabelle td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 768px) {
+    .tabelle td {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .tabelle thead {
+        display: none;
+    }
+    
+    .spalte-handy {
+        display: inline-block;
+        font-weight: bold;
+    }
+    
+}

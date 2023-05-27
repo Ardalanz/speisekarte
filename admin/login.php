@@ -60,11 +60,13 @@ include "funktionen.php";
 <!DOCTYPE html>
 <html lang="de">
 <head>
+<link rel="stylesheet" href="../css/admin_form.css">
+
+
     <meta charset="UTF-8">
     <title>Loginbereich zur Rezepteverwaltung</title>
 </head>
 <body>
-    <link rel="stylesheet" href="../css/adminForm.css">
 
     <h1>Loginbereich zur Rezepteverwaltung</h1>
 <?php

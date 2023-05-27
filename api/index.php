@@ -4,12 +4,15 @@ require "../admin/funktionen.php";
 
 // Aufruf erfolgt: "http://localhost/Speisekarte/speisekarte/api/" => .htaccess - Datei
 
-// http://localhost/Speisekarte/speisekarte/api/v1/rezepte => gibt eine Liste aller Rezepte zurück
-// http://localhost/Speisekarte/speisekarte/api/v1/kategorie => gibt eine Liste aller Rezepte zurück
-// http://localhost/Speisekarte/speisekarte/api/v1/rezepte/1 => gibt das rezept mit der ID 1 inkl. Zutaten zurück
+// http://localhost/Speisekarte/speisekarte/api/v1/produkte/list => gibt eine Liste aller Produkte zurück
+// http://localhost/Speisekarte/speisekarte/api/v1/produkte/1 => gibt das produkt mit der ID 1
+// http://localhost/Speisekarte/speisekarte/api/v1/kategorie/list => gibt eine Liste aller Kategorien zurück
+// http://localhost/Speisekarte/speisekarte/api/v1/kategorie/1 => gibt eine Kategorie zurück
+// http://localhost/Speisekarte/speisekarte/api/v1/kategorie/1/produkte => gibt alle Produkte einer Kategorie zurück
 
 
-header("Content-Type: application/json;");
+header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
 
 function fehler($message)
 {
@@ -57,51 +60,32 @@ if (empty($parameter)) {
 // in $parameter[1], etc. die genauere Spezifizierung was angefragt wurde
 
 switch ($parameter[0]) {
-    case "rezepte":
-        # wenn ich eine id für das Rezept habe 
-        if (!empty($parameter[1])) {
-            // ID wurde übergeben - Detail eines Rezepts ausgeben
+    case "produkte":
+        # wenn ich eine id für das Produkt habe 
+        if ($parameter[1] != "list") {
+            // ID wurde übergeben - Detail eines Produkts ausgeben
             $ausgabe = array(
               "status" => 1
             );
-            // Rezeptdaten ermitteln
-            $sql_rezept_id = escape($parameter[1]);
-            $result = query("SELECT * FROM rezepte WHERE id = '{$sql_rezept_id}' ");
-            $rezept = mysqli_fetch_assoc($result);
-            if (!$rezept) {
-              fehler("Mit der id '{$parameter[1]}' wurde kein Rezept gefunden.");
+            // Produktdaten ermitteln
+            $sql_produkt_id = escape($parameter[1]);
+            $result = query("SELECT * FROM produkte WHERE id = '{$sql_produkt_id}' ");
+            $produkt = mysqli_fetch_assoc($result);
+            if (!$produkt) {
+              fehler("Mit der id '{$parameter[1]}' wurde kein Produkt gefunden.");
             }
-            $ausgabe["rezept"] = $rezept;
-            // Benutzerdaten ermitteln und an Ausgabe anhängen
-            $result = query("SELECT id, benutzername, email FROM benutzer WHERE id = '{$rezept["benutzer_id"]}' ");
-            $ausgabe["benutzer"] = mysqli_fetch_assoc($result);
-            // Zutaten ermitteln und an Ausgabe anhängen
-            $result = query("SELECT zutaten.*, zutaten_zu_rezepte.menge, zutaten_zu_rezepte.einheit
-                FROM zutaten_zu_rezepte JOIN zutaten ON zutaten_zu_rezepte.zutaten_id = zutaten.id
-                WHERE zutaten_zu_rezepte.rezepte_id = '{$sql_rezept_id}'
-                ORDER BY zutaten_zu_rezepte.id
-            ");
-            $ausgabe["zutaten"] = array();
-            while ($zutat = mysqli_fetch_assoc($result)) {
-              $ausgabe["zutaten"][] = $zutat;
-            }
+            $ausgabe["produkt"] = $produkt;
+            $result = query("SELECT * from produkte where id = '{$sql_produkt_id}'");
         
             echo json_encode($ausgabe);
           } else {
-            // Liste aller Rezepte
+            // Liste aller Produkte
             $ausgabe = array(
               "status" => 1,
               "result" => array()
             );
-            $where = "";
-            if (!empty($_GET["suche"])) {
-              $sql_suche = escape($_GET["suche"]);
-              $where = "WHERE rezepte.titel LIKE '%{$sql_suche}%'";
-            }
-            $result = query("SELECT rezepte.id, rezepte.titel, rezepte.img_url, rezepte.preis, benutzer.benutzername
-              FROM rezepte LEFT JOIN benutzer ON rezepte.benutzer_id = benutzer.id
-              {$where}
-              ORDER BY rezepte.id ASC");
+            $result = query("SELECT * FROM produkte where anzeigen != 'nein' ORDER BY titel ASC");
+
             while ($row = mysqli_fetch_assoc($result)) {
               $ausgabe["result"][] = $row;
             }
@@ -109,8 +93,35 @@ switch ($parameter[0]) {
           }
 
         exit;
-        case 'kategorie':
-            # gleich wie in Liste aller Rezepte!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        case 'kategorien':
+
+        if ($parameter[1] == 'list') {
+            // Liste aller Produkte
+            $ausgabe = array(
+              "status" => 1,
+              "result" => array()
+            );
+            $result = query("SELECT * FROM kategorien ORDER BY name ASC");
+
+            while ($row = mysqli_fetch_assoc($result)) {
+              $ausgabe["result"][] = $row;
+            }
+            echo json_encode($ausgabe);
+
+        } else if ($parameter[2] == 'produkte') {
+          $ausgabe = array(
+            "status" => 1,
+            "result" => array()
+          );
+          $result = query("SELECT * FROM produkte where anzeigen != 'nein' and kategorie_id = '{$parameter[1]}' ORDER BY titel ASC");
+
+          while ($row = mysqli_fetch_assoc($result)) {
+            $ausgabe["result"][] = $row;
+          }
+          echo json_encode($ausgabe);
+        } else {
+          
+        }
             
             exit;
     default:
