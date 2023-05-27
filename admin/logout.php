@@ -20,8 +20,11 @@
     <title>Logout aus dem Rezepte-Administrationsbereich</title>
 </head>
 <body>
+
     <h1>Logout aus dem Rezepte-Administrationsbereich</h1>
+
     <p>Sie wurden erfolgreich ausgeloggt.</p>
+
     <p>
         <a href="login.php">Weiter zum Login</a>
     </p>

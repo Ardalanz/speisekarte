@@ -9,7 +9,7 @@
 <body>
 
     <link rel="stylesheet" href="../css/adminForm.css">
-
+    
         <nav>
             <ul>
                 <li><a href="index.php">Start</a></li>
@@ -19,8 +19,6 @@
                 <br>
                     Eingeloggt als: <?php echo $_SESSION["benutzername"];?>
                 </li>
-
-
             </ul>
         </nav>
 

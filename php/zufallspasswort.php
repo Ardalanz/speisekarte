@@ -17,6 +17,7 @@
 
 	
 	?>
+<link rel="stylesheet" href="../css/adminForm.css">
 		<div id='journal'>
 			<div class='wrapper'>
 					<div class='row'>

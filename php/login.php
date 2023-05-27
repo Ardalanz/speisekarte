@@ -64,6 +64,7 @@ include "funktionen.php";
     <title>Loginbereich zur Rezepteverwaltung</title>
 </head>
 <body>
+<link rel="stylesheet" href="../css/adminForm.css">
     
     <h1>Loginbereich zur Rezepteverwaltung</h1>
 <?php

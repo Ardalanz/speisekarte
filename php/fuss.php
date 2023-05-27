@@ -2,6 +2,6 @@
             <hr>
             &copy; Nice to eat, you, CR
         </footer>
-        <script src="js/script.js"></script>
+        <script src="../js/main.js"></script>
     </body>
 </html>

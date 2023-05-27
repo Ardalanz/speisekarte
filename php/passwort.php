@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+<link rel="stylesheet" href="../css/style.css">
     <?php
 
     # error_reporting(E_ERROR | E_PARSE);

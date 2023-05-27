@@ -52,6 +52,8 @@ else {
 
 ?>
 
+<link rel="stylesheet" href="../css/adminForm.css">
+
 <div class='wrapper'>
 	<div class='row'>
 		<div class='col-xs-12'>

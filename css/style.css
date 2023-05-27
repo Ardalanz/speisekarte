@@ -162,6 +162,8 @@
   }
   
   
+
+  
   /*-----------------------------------*\
     #REUSED STYLE
   \*-----------------------------------*/
@@ -317,7 +319,7 @@
   
  
   .hero { 
-    background-image: url("../img/backgr2.jpg");
+    background-image: url("../img/backgr2.jpg") scroll;
   /* object-fit: cover; */
   /* position: fixed; */
   top: 0;
@@ -550,9 +552,25 @@
     scroll-snap-align: start;
   }
   
+.left.hover{
+  color: #f88400;
+}
+div.left {
+  font-size: 40px;
+  float: left;
+  clear: both;
   
-  
-  
+}
+div.right {
+  font-size: 40px;
+  float: left;
+  clear: both;
+}
+
+.getraeke{
+  margin: 20px;
+  padding: 10px;
+}
   
   /*-----------------------------------*\
     #ABOUT
@@ -677,46 +695,15 @@
     border-block-end: 2px solid var(--independence_30);
   }
   
-  .footer-top::after {
-    content: url(../images/delivery-boy.svg);
-    position: absolute;
-    bottom: -11px;
-    left: -160px;
-    width: 160px;
-    animation: running-cycle 20s linear infinite;
-  }
   
-  @keyframes running-cycle {
-    0% { left: -160px; }
-    100% { left: 100%; }
-  }
   
   .footer-top .container {
     display: grid;
     gap: 30px;
   }
   
-  .footer .logo {
-    color: var(--rich-black-fogra-29);
-    font-size: 3.2rem;
-  }
   
   .footer-text { margin-block: 15px 25px; }
-  
-  .social-list {
-    display: flex;
-    gap: 5px;
-  }
-  
-  .social-link {
-    background-color: var(--dark-orange);
-    color: var(--white);
-    font-size: 1.5rem;
-    padding: 10px;
-    transition: var(--transition-1);
-  }
-  
-  .social-link:is(:hover, :focus) { background-color: var(--rich-black-fogra-29); }
   
   .footer-list-title {
     position: relative;
@@ -795,8 +782,8 @@
   
   
   
-  
-  
+
+  img{max-width: 100%;}
   
   
   
@@ -839,6 +826,8 @@
       box-shadow: 5px 5px 5px 1px var(--dark-orange);
 
     }
+
+    
   }
   /**
    * responsive for larger than 480px screen
@@ -1055,20 +1044,7 @@
       bottom: 0;
     }
   
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      bottom: -2px;
-      width: 100%;
-      height: 100%;
-      background-image: url("../images/hero-bg-shape.png");
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: right bottom;
-      pointer-events: none;
-      z-index: -1;
-    }
+    
   
   
   
@@ -1405,7 +1381,7 @@
       padding: auto;
       font-size: 100px;
       box-shadow: -5px -5px 5px 1px var(--dark-orange);
-      background: linear-gradient(45deg, #ff6905, #ffffff, #f88400, #fab7b7);
+      background: linear-gradient(45deg, #ff6905, #ffffff, #f88400, #fab7b7); 
 	    background-size: 400% 400%;
 	    animation: gradient 15s ease infinite;
     }

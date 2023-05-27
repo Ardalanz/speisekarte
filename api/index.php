@@ -110,7 +110,8 @@ switch ($parameter[0]) {
 
         exit;
         case 'kategorie':
-            # gleich wie in Liste aller Rezepte    
+            # gleich wie in Liste aller Rezepte!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            
             exit;
     default:
         // Es wurde eine methode aufgerufen die nicht existiert

@@ -5,12 +5,16 @@ ist_eingeloggt();
 include "kopf.php";
 ?>
 <h1>Rezepte</h1>
+<link rel="stylesheet" href="../css/adminForm.css">
 <p><a href="rezepte_neu.php">Neues Rezept anlegen</a></p>
+
+
 <?php
+
 
 $result = query("SELECT rezepte.*, benutzer.benutzername FROM rezepte JOIN benutzer ON rezepte.benutzer_id = benutzer.id ORDER BY rezepte.titel ASC");
 
-echo "<table border='1'>";
+echo "<table>";
     echo "<thead>";
         echo "<th>Titel</th>";
         echo "<th>Beschreibung</th>";
@@ -22,6 +26,8 @@ echo "<table border='1'>";
     echo "<tbody>";
 
     while($row = mysqli_fetch_assoc($result)) {
+
+        
         echo "<tr>";
             echo "<td>" . $row["titel"] . "</td>";
             echo "<td>" . $row["beschreibung"] . "</td>";
